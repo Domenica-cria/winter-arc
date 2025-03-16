@@ -1,0 +1,25 @@
+version: 1.0.0
+
+guild:
+  max_members: 50
+  xp_per_member: 100
+  level_threshold:
+    - { level: 1, threshold: 0 }
+    - { level: 2, threshold: 100 }
+    - { level: 3, threshold: 200 }
+    - { level: 4, threshold: 300 }
+
+habit:
+  max_daily_tasks: 3
+  streak_consequences:
+    failure_penalty: 50 # xp
+    grace_period: 3 # days
+
+user:
+  initial_xp: 100
+  max_guilds: 1 # max guilds a user can be in
+
+events:
+  eclipse:
+    duration: 1 # days
+    reward_multiplier: 1.5 # multiplier for the reward
