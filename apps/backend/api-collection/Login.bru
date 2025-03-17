@@ -1,11 +1,18 @@
 meta {
-  name: Login
+  name: login
   type: http
   seq: 2
 }
 
 post {
   url: http://localhost:3000/auth/login
-  body: none
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "email":"lego@test.com",
+    "password":"123456789"
+  }
 }

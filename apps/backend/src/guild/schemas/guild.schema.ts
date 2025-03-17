@@ -13,9 +13,9 @@ export class Guild implements IGuild {
     description: string;
 
     @Prop({required: true})
-    bonuses: any;   
+    bonuses: number;   
 
-    @Prop({type: [String]})
+    @Prop({type: [String], ref: 'User'})
     members: string[];
 }
 

@@ -11,7 +11,21 @@ export class UserService{
         return this.userModel.findById(userId).exec();
     }
 
+    async findByEmail(email: string): Promise<User | null>{
+        return this.userModel.findOne({ email }).exec();
+    }
+
     async updateUserGuild(userId: string, guildId: string): Promise<User | null> {
         return this.userModel.findByIdAndUpdate(userId, { guildId }, { new: true }).exec();
+    }
+
+    async create(userData: Partial<User>): Promise<User>{
+        try {
+            const newUser = new this.userModel(userData);
+            return await newUser.save();   
+        } catch (error) {
+            console.log({error})
+            throw error;
+        }
     }
 }

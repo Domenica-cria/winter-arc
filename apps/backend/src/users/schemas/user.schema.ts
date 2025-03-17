@@ -3,9 +3,6 @@ import { IUser } from '@domenica/common/types';
 
 @Schema({ timestamps: true })
 export class User implements IUser {
-  @Prop()
-  _id: string;
-
   @Prop({ required: true })
   name: string;
   
@@ -15,8 +12,8 @@ export class User implements IUser {
   @Prop({ required: true })
   password: string;
 
-  @Prop({ type: String, ref: 'Guild' })
-  guildId?: string;
+  @Prop({ type: String, ref: 'Guild', default: "" })
+  guildId: string;
 
   @Prop({ type: Number, default: 0 })
   level: number;

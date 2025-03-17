@@ -1,0 +1,21 @@
+meta {
+  name: join guild
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:3000/guilds/:id/join
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 67d84efb0ffeeeebc99ca72c
+}
+
+body:json {
+  {
+    "userId": "67d84ba035c9995f96dba982"
+  }
+}

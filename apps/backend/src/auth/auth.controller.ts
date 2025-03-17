@@ -10,8 +10,7 @@ class LoginDto{
 class CreateUserDto{
     email: string;
     password: string;
-    guildId: string;
-    characterClass: string;
+    name: string;
 }
 
 @Controller('auth')
@@ -21,18 +20,15 @@ export class AuthController{
     @Post('login')
     async login(@Body() createLoginDto: LoginDto){
         const user = await this.authService.validateUser(createLoginDto.email, createLoginDto.password);
+        console.log({user})
         if(!user){
-            throw new UnauthorizedException('Invalid credentials');
+            throw new UnauthorizedException('Invalid credentials controller');
         }
         return this.authService.login(user);
     }
 
     @Post('register')
     async register(@Body() createUserDto: CreateUserDto){
-        const userAlreadyExists = await this.authService.checkIfUserExists(createUserDto.email);
-        if(userAlreadyExists){
-            throw new BadRequestException('User already exists');
-        }
         return this.authService.register(createUserDto as User);
     }
 }
