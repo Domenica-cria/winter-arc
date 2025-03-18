@@ -18,6 +18,10 @@ export class GuildService {
         return this.guildModel.findById(id).exec();
     }
 
+    async getLeaderboard(): Promise<Guild[]> {
+        return this.guildModel.find().sort({totalXp: -1}).limit(5).exec()
+    }
+
     async joinGuild(guildId: string, userId: string): Promise<Guild | null> {
         // Input validation
         if (!guildId || !userId) {

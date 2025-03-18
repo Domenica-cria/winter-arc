@@ -18,7 +18,7 @@ export class Habit extends Document {
     streak: number;
 
     @Prop({required: true})
-    recurrence: string;
+    recurrence: 'daily' | 'weekly' | 'monthly' | 'yearly';
 }
 
 export const HabitSchema = SchemaFactory.createForClass(Habit);

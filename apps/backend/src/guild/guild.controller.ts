@@ -10,6 +10,11 @@ export class GuildController{
         return this.guildService.findAll();
     }
 
+    @Get('leaderboard')
+    async getLeaderboard() {
+        return this.guildService.getLeaderboard();
+    }
+
     @Get(':id')
     async findById(@Param('id') id: string) {
         return this.guildService.findById(id);

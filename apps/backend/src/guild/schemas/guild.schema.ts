@@ -17,6 +17,9 @@ export class Guild implements IGuild {
 
     @Prop({type: [String], ref: 'User'})
     members: string[];
+
+    @Prop({type: Number, default: 0})
+    totalXp: number;
 }
 
 export const GuildSchema = SchemaFactory.createForClass(Guild);
